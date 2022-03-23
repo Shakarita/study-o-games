@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% set active_page = "login" %}
+{% block title %}
+    Login
+{% endblock %}
+{% block main %}
+    <script>
+        function Notification() { 
+            p = document.getElementById('password').value
+
+            if (p.length == 0) { 
+                alert("password not empty")
+                return false
+            }
+        }
+    </script>
+        <div style="text-align: center; padding: 2px; margin: 100px;">
+            
+        <form action="/login" method="post" >
+
+            <div>
+                <h1 style="margin: 20px">ลงชื่อเข้าใช้บัญชีของคุณ</h1>
+                <br>
+            </div>
+            
+            <div class="form-group">
+                <div class="group-login">
+                    <input class="form-control" style="width: 400px; margin: auto; height: 50px; border-radius: 5px;" id="username" type="text" name="username" placeholder=" ชื่อผู้ใช้" required="" oninvalid="this.setCustomValidity('กรุณาป้อนชื่อผู้ใช้ของคุณ')" oninput="setCustomValidity('')">
+                    <br>
+                </div>
+                <div class="pass">
+                    <input class="form-control" style="width: 400px; margin: auto; height: 50px; border-radius: 5px;" id="password" type = "password" name="password" placeholder=" รหัสผ่าน" required="" oninvalid="this.setCustomValidity('กรุณาป้อนรหัสผ่านของคุณ')"
+                    oninput="setCustomValidity('')">
+                </div>
+                <div style="margin: 20px;">
+                    <button class="btn-submit btn smtbtn" type="submit">เข้าสู่ระบบ</button>
+                </div>
+            </div>
+            
+        </form>
+
+        <div style ="margin: 50px">
+            <a style="margin:20px; text-decoration: none;" href="forgot_password" class="disabled">ลืมรหัสผ่าน?</a>
+            <a style="margin:20px; text-decoration: none;" href="/register">ยังไม่มีบัญชี</a>
+        </div>
+    </div>
+{% endblock %}
